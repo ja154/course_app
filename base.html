@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Code AI Courses - {% block title %}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the tech theme */
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b; /* Dark grey background */
+            color: #f8f8f2; /* Light text */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #29364d; /* Slightly lighter dark grey */
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            flex-grow: 1; /* Allows container to grow and push footer down */
+        }
+
+        header {
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #475569;
+        }
+
+        header h1 {
+            font-family: 'Fira Code', monospace;
+            font-size: 2.5rem;
+            color: #64ffda; /* Cyan accent */
+            text-shadow: 0 0 5px #64ffda, 0 0 10px #64ffda;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #a8b2d1;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+        }
+
+        nav a:hover {
+            color: #64ffda;
+            transform: scale(1.05);
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+
+        .flash-message {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.3rem;
+        }
+
+        .flash-message.success {
+            background-color: #a7f3d0;
+            color: #166534;
+        }
+
+        .flash-message.error {
+            background-color: #fca5a5;
+            color: #b91c1c;
+        }
+
+        .flash-message.info {
+            background-color: #bae6fd;
+            color: #0369a1;
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #334155;
+            color: #cbd5e1;
+            border: none;
+            border-radius: 0.3rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 1000;
+        }
+
+        #theme-toggle:hover {
+            background-color: #475569;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #161b22;
+            color: #a8b2d1;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: auto; /* Pushes footer to the bottom */
+            border-top: 1px solid #30363d;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #a8b2d1;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: #64ffda;
+            transform: scale(1.1);
+        }
+
+        /* TikTok Button Styling */
+        .tiktok-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem; /* Adjusted padding for button */
+            background-color: #fe2c55; /* TikTok Brand Red */
+            color: #fff;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            box-shadow: 0 3px 10px rgba(254, 44, 85, 0.4); /* Pink shadow */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none; /* Ensure it looks like a button, not a link */
+        }
+
+        .tiktok-button:hover {
+            background-color: #d12246; /* Darker red on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(254, 44, 85, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" onclick="toggleTheme()" class="focus:outline-none">
+        <span class="dark:block hidden">💡</span>
+        <span class="light:block hidden">🌙</span>
+    </button>
+
+    <div class="container">
+        <header>
+            <h1>Vibe Code AI Courses</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('ai') }}">AI Page</a>
+            </nav>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="mb-6">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+            <!-- Content from inheriting templates will go here -->
+        {% endblock %}
+    </div>
+
+    <footer class="mt-8 p-6 text-center text-gray-400">
+        <p>&copy; <span id="current-year"></span> Vibe Code AI. All rights reserved.</p>
+        <div class="social-links">
+            <!-- Individual TikTok text links -->
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer">TikTok 1</a>
+            <a href="https://www.tiktok.com/@earunga" target="_blank" rel="noopener noreferrer">TikTok 2</a>
+            <a href="https://www.tiktok.com/@yourtiktokusername_3" target="_blank" rel="noopener noreferrer">TikTok 3</a>
+            <!-- Add more TikTok links as needed, always replacing 'yourtiktokusername_X' with your actual username -->
+        </div>
+        <!-- Button to directly link users to TikTok pages -->
+        <div class="mt-4">
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer" 
+               class="tiktok-button">
+                Visit Our TikTok
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Script to set the current year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Theme toggle script
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                document.documentElement.classList.remove('dark');
+                document.body.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                document.body.classList.remove('dark');
+                localStorage.theme = 'dark'; // Save preference
+            } else {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+                localStorage.theme = 'light'; // Save preference
+            }
+        }
+    </script>
+</body>
+</html>
+
