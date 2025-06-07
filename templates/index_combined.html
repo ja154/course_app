@@ -78,6 +78,28 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* NEW: Styles for Google Translate Widget */
+        .goog-te-gadget-simple {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+            padding: 8px !important;
+            border-radius: 8px !important;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+        .goog-te-gadget-simple span {
+            color: #333 !important;
+        }
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
+        body > .skiptranslate {
+            display: none;
+        }
+        body {
+            top: 0 !important;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -254,7 +276,6 @@
                     <p class="text-xl font-semibold text-gray-700 mb-8">
                         📚 Ready to dive deeper into AI? Download our comprehensive guide:
                     </p>
-                    <!-- PDF link pointing to root directory -->
                     <a href="ai-coding-guide.pdf" download="Vibe-Code-AI-Guide.pdf" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto">
                         <span class="mr-2">📥</span>
                         Download Our AI Guide (PDF)
@@ -340,14 +361,8 @@
                     <h6 class="text-white font-semibold text-lg mb-4 flex items-center">
                         <span class="mr-2">🌍</span> Language
                     </h6>
-                    <div class="relative">
-                        <button class="bg-gray-800 text-white font-medium py-2 px-4 rounded-md flex items-center hover:bg-gray-700 transition-colors" id="language-dropdown-button">
-                            <span class="mr-2">🇺🇸</span> English
-                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                    </div>
+                    <!-- NEW: This div will be filled by Google Translate -->
+                    <div id="google_translate_element"></div>
                 </div>
             </div>
 
@@ -370,6 +385,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- NEW: Google Translate Scripts -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
         // Set current year
