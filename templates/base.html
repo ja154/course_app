@@ -3,101 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Code AI - {% block title %}Welcome{% endblock %}</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-    
+    <title>Vibe Code AI Courses - {% block title %}{% endblock %}</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts: Montserrat (for headings) and Open Sans (for body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Optional: Bootstrap Icons for icons like bi-back, bi-person. Uncomment if you want these icons to show. -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"> -->
+
     <style>
-        :root {
-            --primary-color: #007bff; --secondary-color: #6c757d; --background-color: #f8f9fa;
-            --text-color: #212529; --card-bg: #ffffff; --heading-color: #343a40; --link-color: #0056b3;
-            --nav-link-color: #555; --footer-bg: #e9ecef; --footer-text: #6c757d;
+        /* Custom styles to mimic the original template's specific colors and effects,
+           while leveraging Tailwind for layout and responsiveness */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            @apply bg-gray-50 text-gray-800 min-h-screen flex flex-col; /* Light background, dark text */
         }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--background-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; display: flex; flex-direction: column; min-height: 100vh; }
-        main { flex-grow: 1; }
-        .site-header { background-color: var(--card-bg); padding: 2rem 0; border-bottom: 1px solid #dee2e6; transition: background-color 0.3s ease, border-color 0.3s ease; }
-        .site-header h1 { font-family: 'Roboto Mono', monospace; color: var(--primary-color); font-weight: 700; }
-        .navbar-custom a { color: var(--nav-link-color); margin: 0 1rem; font-weight: 600; text-decoration: none; transition: color 0.3s; }
-        .navbar-custom a:hover { color: var(--primary-color); }
-        .section-padding { padding: 60px 0; }
-        .custom-block { background-color: var(--card-bg); padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease; }
-        .custom-btn { background: var(--primary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block; transition: background-color 0.3s, transform 0.2s; }
-        .custom-btn:hover { background-color: var(--link-color); transform: translateY(-2px); }
-        .site-footer { background-color: var(--footer-bg); color: var(--footer-text); padding: 2rem 0; margin-top: auto; transition: background-color 0.3s ease, color 0.3s ease;}
-        #theme-toggle { position: fixed; top: 1rem; right: 1rem; background-color: var(--card-bg); color: var(--text-color); border: 1px solid #ccc; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; z-index: 1000; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
-        body.dark { --primary-color: #00bcd4; --secondary-color: #4dd0e1; --background-color: #000428; --text-color: #e0f7fa; --card-bg: rgba(0, 0, 0, 0.7); --heading-color: #00bcd4; --link-color: #4dd0e1; --nav-link-color: #00bcd4; --footer-bg: rgba(0, 0, 0, 0.5); --footer-text: #e0f7fa; }
-        body.dark { background: linear-gradient(135deg, #000428, #004e92); font-family: 'Roboto Mono', monospace; }
-        body.dark .site-header { background: rgba(0, 0, 0, 0.5); border-bottom: 1px solid #004e92; }
-        body.dark .site-header h1 { text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; }
-        body.dark .custom-btn { background: #00bcd4; color: #0d1117; box-shadow: 0 4px 15px rgba(0, 188, 212, 0.5); }
-        body.dark .custom-btn:hover { background-color: #4dd0e1; box-shadow: 0 6px 20px rgba(77, 208, 225, 0.6); }
-        body.dark #theme-toggle { background-color: #333; color: #fff; border-color: #555; }
-        .toggle-icon .bi-sun { display: none; } .toggle-icon .bi-moon { display: block; }
-        body.dark .toggle-icon .bi-sun { display: block; } body.dark .toggle-icon .bi-moon { display: none; }
-        .form-control-custom { display: block; width: 100%; padding: 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--text-color); background-color: var(--background-color); border: 1px solid var(--secondary-color); border-radius: 0.375rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; margin-bottom: 1rem; }
-        .form-control-custom:focus { color: var(--text-color); background-color: var(--card-bg); border-color: var(--primary-color); outline: 0; box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); }
-        body.dark .form-control-custom:focus { box-shadow: 0 0 0 0.25rem rgba(0, 188, 212, 0.25); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            @apply font-semibold;
+        }
+
+        .container-wide {
+            @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; /* Wider container for main content */
+        }
+        .container-narrow {
+            @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8; /* Narrower container for specific sections */
+        }
+
+        /* Header / Navbar Styling - Mimicking Bootstrap's Navbar-light */
+        .navbar-custom {
+            @apply bg-white shadow-md py-4 rounded-b-lg;
+        }
+        .navbar-brand-custom {
+            @apply text-blue-600 font-bold text-2xl flex items-center;
+        }
+        .navbar-brand-custom i {
+            @apply text-blue-500 mr-2; /* Adjust icon color to match theme */
+        }
+        .nav-link-custom {
+            @apply text-gray-700 hover:text-blue-600 font-medium text-lg px-4 py-2 rounded-md transition-colors duration-200;
+        }
+        .dropdown-menu-custom {
+            @apply bg-white shadow-lg rounded-lg py-2 mt-2;
+        }
+        .dropdown-item-custom {
+            @apply block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200;
+        }
+
+        /* Flash Message Styles */
+        .flash-message {
+            @apply p-4 mb-6 rounded-lg font-semibold border;
+        }
+        .flash-message.success {
+            @apply bg-green-100 text-green-700 border-green-200;
+        }
+        .flash-message.error {
+            @apply bg-red-100 text-red-700 border-red-200;
+        }
+        .flash-message.info {
+            @apply bg-blue-100 text-blue-700 border-blue-200;
+        }
+
+        /* Theme Toggle Button - Adjusted for bright theme */
+        #theme-toggle {
+            @apply fixed top-4 right-4 bg-gray-200 text-gray-800 border-none rounded-full p-3 cursor-pointer transition-all duration-300 shadow-md hover:bg-gray-300 hover:scale-105 z-50;
+        }
+        #theme-toggle span {
+            @apply text-xl;
+        }
+
+        /* Footer Styling - Mimicking original template's footer */
+        .site-footer-custom {
+            @apply bg-gray-800 text-gray-300 py-12 px-4 rounded-t-lg shadow-inner mt-auto; /* Added mt-auto to push footer to bottom */
+        }
+        .site-footer-title {
+            @apply text-white font-semibold text-xl mb-4;
+        }
+        .site-footer-links li {
+            @apply mb-2;
+        }
+        .site-footer-link {
+            @apply text-gray-400 hover:text-blue-400 transition-colors duration-200;
+        }
+        .copyright-text {
+            @apply text-sm text-gray-500;
+        }
+        /* Enhanced button styling for a more distinct shape/presence */
+        .tiktok-button-custom {
+            @apply inline-block px-8 py-4 bg-gradient-to-r from-pink-600 to-red-600 text-white font-bold rounded-full shadow-xl hover:from-pink-700 hover:to-red-700 hover:scale-105 transition-all duration-300 ease-in-out border-2 border-red-700; /* Added heavier shadow and border */
+        }
+        .social-links-custom a {
+            @apply text-gray-400 hover:text-white transition-colors duration-200 text-2xl;
+        }
+        /* Style for language dropdown button in footer */
+        .language-dropdown-button {
+            @apply bg-gray-700 text-white font-medium py-2 px-4 rounded-md inline-flex items-center hover:bg-gray-600 transition-colors duration-200;
+        }
     </style>
 </head>
-<body>
-
+<body class="min-h-screen flex flex-col">
+    <!-- Theme Toggle Button -->
     <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-        <span class="toggle-icon"><i class="bi bi-moon"></i><i class="bi bi-sun"></i></span>
+        <span class="dark:inline-block hidden">💡</span>
+        <span class="inline-block dark:hidden">🌙</span>
     </button>
 
-    <header class="site-header text-center">
-        <div class="container">
-            <h1 class="my-3">Vibe Code AI</h1>
-            <nav class="navbar-custom">
-                <a href="{{ url_for('home') }}">Home</a>
-                <a href="{{ url_for('ai') }}">AI Page</a>
-                <a href="{{ url_for('contact') }}">Contact</a>
+    <!-- Header Section - Mimicking original template's Navbar -->
+    <header class="navbar-custom">
+        <div class="container-wide flex justify-between items-center">
+            <a class="navbar-brand-custom" href="{{ url_for('home') }}">
+                <i class="bi-back"></i>
+                <span>Vibe Code</span>
+            </a>
+
+            <!-- Mobile menu icon (hamburger) -->
+            <button class="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    type="button" id="mobile-menu-button" aria-expanded="false" aria-label="Toggle navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+
+            <!-- Desktop Nav and Mobile Nav (collapsed by default) -->
+            <nav class="hidden lg:flex flex-grow justify-end" id="main-nav">
+                <ul class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0 mt-4 lg:mt-0">
+                    <li><a class="nav-link-custom" href="{{ url_for('home') }}">Home</a></li>
+                    <li><a class="nav-link-custom" href="{{ url_for('ai') }}">AI Page</a></li>
+                    <!-- Example for future pages, adjust as needed -->
+                    <li class="relative group">
+                        <button class="nav-link-custom flex items-center w-full lg:w-auto text-left" type="button">
+                            Pages
+                            <svg class="ml-1 w-4 h-4 hidden lg:inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <ul class="dropdown-menu-custom lg:absolute lg:left-0 hidden group-hover:block w-40 lg:w-auto lg:mt-0.5">
+                            <li><a class="dropdown-item-custom" href="#">Topics Listing (Placeholder)</a></li>
+                            <li><a class="dropdown-item-custom" href="#">Contact Form (Placeholder)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="hidden lg:block ml-8">
+                    <a href="#top" class="text-gray-700 hover:text-blue-600 text-2xl">
+                        <i class="bi-person"></i>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }} alert-dismissible fade show mt-3" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <main class="flex-grow">
+        <div class="container-wide mt-8">
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="mb-6">
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+                {% endif %}
+            {% endwith %}
 
-        {% block content %}{% endblock %}
+            {% block content %}
+                <!-- Content from inheriting templates will go here -->
+            {% endblock %}
+        </div>
     </main>
 
-    <footer class="site-footer text-center">
-        <p>© <span id="current-year"></span> Vibe Code AI. All rights reserved.</p>
+    <!-- Footer Section - Mimicking original template's footer -->
+    <footer class="site-footer-custom">
+        <div class="container-wide grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 mb-4 pb-2">
+                <a class="navbar-brand-custom text-white" href="{{ url_for('home') }}">
+                    <i class="bi-back"></i>
+                    <span>Vibe Code</span>
+                </a>
+            </div>
+
+            <div class="col-span-1">
+                <h6 class="site-footer-title">Resources</h6>
+                <ul class="site-footer-links">
+                    <li><a href="#" class="site-footer-link">Home</a></li>
+                    <li><a href="#" class="site-footer-link">How it works</a></li>
+                    <li><a href="#" class="site-footer-link">FAQs</a></li>
+                    <li><a href="#" class="site-footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-1 mb-4 md:mb-0">
+                <h6 class="site-footer-title">Information</h6>
+                <p class="text-gray-400 flex items-center mb-1">
+                    <a href="tel: 305-240-9671" class="site-footer-link">305-240-9671</a>
+                </p>
+                <p class="text-gray-400 flex items-center">
+                    <a href="mailto:info@company.com" class="site-footer-link">info@company.com</a>
+                </p>
+            </div>
+
+            <div class="col-span-1 mt-4 md:mt-0 md:ml-auto text-center md:text-left">
+                <div class="relative inline-block text-left">
+                    <button class="language-dropdown-button" type="button" id="language-dropdown-button" aria-expanded="false">
+                        English
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <!-- Dropdown for languages (simplified for this example) -->
+                    <ul id="language-dropdown-menu" class="dropdown-menu-custom absolute right-0 mt-2 w-40 origin-top-right hidden">
+                        <li><button class="dropdown-item-custom w-full text-left" type="button">Thai</button></li>
+                        <li><button class="dropdown-item-custom w-full text-left" type="button">Myanmar</button></li>
+                        <li><button class="dropdown-item-custom w-full text-left" type="button">Arabic</button></li>
+                    </ul>
+                </div>
+
+                <p class="copyright-text mt-8">Copyright &copy; <span id="current-year-footer"></span> Vibe Code AI. All rights reserved.</p>
+                <p class="copyright-text mt-2">Design: <a rel="nofollow" href="https://templatemo.com" target="_blank" class="site-footer-link">TemplateMo</a></p>
+            </div>
+        </div>
+        <div class="social-links-custom flex justify-center gap-6 mt-8">
+            <!-- These would ideally use font icons like Bootstrap Icons if linked -->
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer" aria-label="TikTok 1"><i class="bi-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@earunga" target="_blank" rel="noopener noreferrer" aria-label="TikTok 2"><i class="bi-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@yourtiktokusername_3" target="_blank" rel="noopener noreferrer" aria-label="TikTok 3"><i class="bi-tiktok"></i></a>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer"
+               class="tiktok-button-custom">
+                Visit Our TikTok
+            </a>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        const body = document.body;
-        function applyTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') body.classList.remove('dark');
-            else body.classList.add('dark');
-        }
-        function toggleTheme() {
-            if (body.classList.contains('dark')) {
-                body.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
+        // Script to set the current year dynamically for the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+        // Theme toggle script (retained for independent functionality, though main theme is bright)
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                document.documentElement.classList.remove('dark');
             } else {
-                body.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+                document.documentElement.classList.add('dark');
+            }
+        });
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
             }
         }
-        document.addEventListener('DOMContentLoaded', applyTheme);
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mainNav = document.getElementById('main-nav');
+
+        if (mobileMenuButton && mainNav) {
+            mobileMenuButton.addEventListener('click', () => {
+                mainNav.classList.toggle('hidden');
+                mainNav.classList.toggle('flex');
+                mainNav.classList.toggle('flex-col');
+                mainNav.classList.toggle('absolute');
+                mainNav.classList.toggle('top-full');
+                mainNav.classList.toggle('left-0');
+                mainNav.classList.toggle('w-full');
+                mainNav.classList.toggle('bg-white');
+                mainNav.classList.toggle('shadow-lg');
+                mainNav.classList.toggle('rounded-b-lg');
+                mainNav.classList.toggle('py-4');
+                mainNav.classList.toggle('z-40');
+            });
+        }
+
+        // Language dropdown toggle
+        const languageDropdownButton = document.getElementById('language-dropdown-button');
+        const languageDropdownMenu = document.getElementById('language-dropdown-menu');
+
+        if (languageDropdownButton && languageDropdownMenu) {
+            languageDropdownButton.addEventListener('click', () => {
+                languageDropdownMenu.classList.toggle('hidden');
+            });
+            // Close dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!languageDropdownButton.contains(event.target) && !languageDropdownMenu.contains(event.target)) {
+                    languageDropdownMenu.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
 </html>
