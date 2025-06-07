@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Coding AI</title>
+    <title>Vibe Coding AI - Guide</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Google Fonts: Montserrat (for headings) and Open Sans (for body) -->
@@ -81,7 +81,7 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
-    <!-- Header Section (standalone for demo, usually {% extends "base.html" %}) -->
+    <!-- Header Section (standalone for demo, assuming no direct Jinja extends in this file) -->
     <header class="navbar-custom">
         <div class="container-wide flex justify-between items-center">
             <a class="navbar-brand-custom" href="{{ url_for('home') }}">
@@ -100,22 +100,32 @@
         <section class="ai-hero-section">
             <div class="ai-hero-overlay"></div>
             <div class="ai-hero-content">
-                <h1>Unlock the Power of AI with Vibe Coding</h1>
-                <p>Dive into the fascinating world of Artificial Intelligence with a learning experience that resonates. At Vibe Coding AI, we believe in understanding complex AI concepts through creativity and engaging methods.</p>
+                <h1>The Rhythmic Revolution of AI Coding</h1>
+                <p>Welcome to the Vibe Coding AI Guide! Discover a fresh, fun way to learn programming, making coding feel natural and exciting. We believe anyone can learn to code and unleash their inner creator with AI.</p>
             </div>
         </section>
 
-        <!-- Main Content Section -->
+        <!-- Main Content Section with detailed guide info -->
         <section class="ai-main-content">
-            <h2>Our Approach to AI Education</h2>
-            <p>At Vibe Coding AI, we demystify complex AI concepts by integrating them into practical, engaging projects. We focus on hands-on learning, allowing you to not just understand the theory, but to actively build and innovate. Our curriculum covers the fundamentals of Machine Learning, Deep Learning, Natural Language Processing, and Computer Vision, ensuring you gain a comprehensive skill set.</p>
-            <p>Our unique methodology encourages creativity and problem-solving. You'll learn to apply AI principles to real-world scenarios, transforming abstract ideas into intelligent solutions. We believe in learning by doing, and our guides are designed to support your journey from novice to confident AI practitioner.</p>
+            <h2 class="text-blue-700">What is Vibe Coding?</h2>
+            <p>Vibe Coding is about finding your favorite song's rhythm, but with code! It transforms learning programming into a natural and exciting experience, using simple ideas to let your creativity shine. We believe coding should be accessible and joyful for everyone, even if you've never tried before.</p>
+
+            <h2 class="text-blue-700 mt-8">Why Vibe Coding for AI?</h2>
+            <p>Artificial Intelligence is like giving computers the ability to think and create. Vibe Coding helps you jump into this exciting field easily, like stepping into a new adventure game. We make learning AI feel less like a tough puzzle and more like a creative journey of discovery. Whether you love music, design, or are just curious about how AI works, Vibe Coding helps you use your natural talents to understand concepts like Machine Learning and Neural Networks.</p>
+
+            <h2 class="text-blue-700 mt-8">Getting Started with Your AI Vibe: Your First Steps!</h2>
+            <ol class="list-decimal list-inside text-lg text-gray-700 mb-6 space-y-2">
+                <li>**Get a Code Editor:** Think of this as your digital sketchbook for code. Download a friendly one like VS Code. It's free, powerful, and easy to use.</li>
+                <li>**Play with Simple Projects:** Start with small, fun projects using languages like Python. Python is like the "easy button" for AI, and you'll quickly get comfortable and confident.</li>
+                <li>**Add Your Creative Touch:** Make your AI projects sing! Add music, cool animations, or even colorful charts that show what your AI is doing in a beautiful way.</li>
+                <li>**Share and Connect:** Show off what you've made! Share your projects with friends or online communities. You can also take ideas from others and make them your own — collaboration is key!</li>
+            </ol>
             <p class="text-center text-xl font-medium mt-8">
-                Ready to take the next step in your AI journey?
+                Ready to dive deeper into AI? Download our comprehensive guide:
             </p>
-            <div class="text-center">
+            <div class="text-center mt-8">
                 <a class="ai-button" href="{{ url_for('static', filename='ai-coding-guide.pdf') }}" download>
-                    Download Our AI Guide
+                    Download Our AI Guide (PDF)
                 </a>
             </div>
         </section>
@@ -134,10 +144,10 @@
             <div class="col-span-1">
                 <h6 class="site-footer-title">Resources</h6>
                 <ul class="site-footer-links">
-                    <li><a href="#" class="site-footer-link">Home</a></li>
-                    <li><a href="#" class="site-footer-link">AI</a></li>
-                    <li><a href="#" class="site-footer-link">FAQs</a></li>
-                    <li><a href="#" class="site-footer-link">Contact</a></li>
+                    <li><a href="{{ url_for('home') }}" class="site-footer-link">Home</a></li>
+                    <li><a href="{{ url_for('ai') }}" class="site-footer-link">AI</a></li>
+                    <li><a href="#" class="site-footer-link">FAQs (Placeholder)</a></li>
+                    <li><a href="#" class="site-footer-link">Contact (Placeholder)</a></li>
                 </ul>
             </div>
 
@@ -152,7 +162,6 @@
             </div>
 
             <div class="col-span-1 mt-4 md:mt-0 md:ml-auto text-center md:text-left">
-                <!-- No language dropdown needed for AI page unless specified -->
                 <p class="copyright-text mt-8 md:mt-0">&copy; <span id="current-year-footer-ai"></span> Vibe Coding AI. All rights reserved.</p>
                 <p class="copyright-text mt-2">Design: <a rel="nofollow" href="https://templatemo.com" target="_blank" class="site-footer-link">TemplateMo</a></p>
             </div>
