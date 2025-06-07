@@ -109,12 +109,13 @@
 
     <main class="pt-20">
         <!-- Hero Section -->
-        <section id="home-section" class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="float-animation absolute top-20 left-10 text-6xl">🤖</div>
-                <div class="float-animation absolute top-40 right-20 text-4xl" style="animation-delay: 1s;">💻</div>
-                <div class="float-animation absolute bottom-40 left-20 text-5xl" style="animation-delay: 2s;">⚡</div>
-                <div class="float-animation absolute bottom-20 right-10 text-4xl" style="animation-delay: 0.5s;">🎯</div>
+        <section id="home-section" class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden p-6">
+            <!-- Background Image Collage -->
+            <div class="absolute inset-0 z-0 opacity-40">
+                <img src="static/Generated%20image%201%20(1).png" alt="Abstract AI art" class="absolute top-1/4 left-1/4 w-48 h-48 object-cover rounded-full -rotate-12 transform-gpu transition hover:scale-110 duration-500">
+                <img src="static/image%20(1).png" alt="Abstract AI art" class="absolute bottom-1/4 right-1/4 w-40 h-40 object-cover rounded-2xl rotate-6 transform-gpu transition hover:scale-110 duration-500">
+                <img src="static/Generated%20image%201%20(2).png" alt="Abstract AI art" class="absolute top-20 right-32 w-32 h-32 object-cover rounded-lg rotate-12 transform-gpu transition hover:scale-110 duration-500">
+                <img src="static/image%20(2).png" alt="Abstract AI art" class="absolute bottom-20 left-32 w-36 h-36 object-cover rounded-xl -rotate-6 transform-gpu transition hover:scale-110 duration-500">
             </div>
             
             <div class="max-w-6xl mx-auto px-4 text-center relative z-10">
@@ -253,7 +254,7 @@
                     <p class="text-xl font-semibold text-gray-700 mb-8">
                         📚 Ready to dive deeper into AI? Download our comprehensive guide:
                     </p>
-                    <!-- FIX: Removed "static/" from the href path -->
+                    <!-- PDF link pointing to root directory -->
                     <a href="ai-coding-guide.pdf" download="Vibe-Code-AI-Guide.pdf" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto">
                         <span class="mr-2">📥</span>
                         Download Our AI Guide (PDF)
@@ -262,6 +263,39 @@
             </div>
         </section>
 
+        <!-- Visual Showcase Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
+                        🎨 A Glimpse Into Vibe Code
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        See what's possible when creativity and artificial intelligence collide.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="static/Generated%20image%201.png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                     <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="static/image.png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                     <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="static/Generated%20image%201%20(3).png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                     <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="static/image%20(3).png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                     <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="static/Generated%20image%201%20(4).png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                     <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="static/Autodontics.png" alt="Autodontics Logo" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -294,11 +328,11 @@
                     </h6>
                     <p class="text-gray-400 mb-2 flex items-center">
                         <span class="mr-2">📱</span>
-                        <a href="tel:0742453547" class="hover:text-purple-400 transition-colors">0742453547</a>
+                        <a href="tel:305-240-9671" class="hover:text-purple-400 transition-colors">305-240-9671</a>
                     </p>
                     <p class="text-gray-400 flex items-center">
                         <span class="mr-2">✉️</span>
-                        <a href="mailto:info@company.com" class="hover:text-purple-400 transition-colors">jmwanguwe3@gmail.com</a>
+                        <a href="mailto:info@company.com" class="hover:text-purple-400 transition-colors">info@company.com</a>
                     </p>
                 </div>
 
