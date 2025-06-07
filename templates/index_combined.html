@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Code AI Courses</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts: Montserrat (for headings) and Open Sans (for body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Optional: Bootstrap Icons for icons like bi-back, bi-person. Uncomment if you want these icons to show. -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"> -->
+
+    <style>
+        /* Custom styles to mimic the original template's specific colors and effects,
+           while leveraging Tailwind for layout and responsiveness */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            @apply bg-gray-50 text-gray-800 min-h-screen flex flex-col; /* Light background, dark text */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            @apply font-semibold;
+        }
+
+        .container-wide {
+            @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; /* Wider container for main content */
+        }
+        .container-narrow {
+            @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8; /* Narrower container for specific sections */
+        }
+
+        /* Header / Navbar Styling - Mimicking Bootstrap's Navbar-light */
+        .navbar-custom {
+            @apply bg-white shadow-md py-4 rounded-b-lg;
+        }
+        .navbar-brand-custom {
+            @apply text-blue-600 font-bold text-2xl flex items-center;
+        }
+        .navbar-brand-custom i {
+            @apply text-blue-500 mr-2; /* Adjust icon color to match theme */
+        }
+        .nav-link-custom {
+            @apply text-gray-700 hover:text-blue-600 font-medium text-lg px-4 py-2 rounded-md transition-colors duration-200;
+        }
+        .dropdown-menu-custom {
+            @apply bg-white shadow-lg rounded-lg py-2 mt-2;
+        }
+        .dropdown-item-custom {
+            @apply block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200;
+        }
+
+        /* Hero Section style for AI Page (adapted from ai.html) */
+        .ai-hero-section {
+            background-image: url('https://placehold.co/1500x500/A0D9F7/003C60?text=AI+Concepts'); /* Placeholder for a visually appealing AI image */
+            background-size: cover;
+            background-position: center;
+            @apply relative flex justify-center items-center py-20 px-4 text-center text-white shadow-lg;
+        }
+        .ai-hero-overlay {
+            @apply absolute inset-0 bg-blue-800 bg-opacity-70; /* Darker blue overlay */
+        }
+        .ai-hero-content {
+            @apply relative z-10 max-w-3xl;
+        }
+        .ai-hero-content h1 {
+            @apply text-5xl font-bold mb-4 drop-shadow-md;
+        }
+        .ai-hero-content p {
+            @apply text-xl leading-relaxed opacity-90;
+        }
+
+        /* Main content section - Mimicking card-like elements from index.html */
+        .content-section {
+            @apply max-w-4xl mx-auto my-8 p-10 bg-white rounded-xl shadow-xl border border-gray-200;
+        }
+        .content-section h2 {
+            @apply text-4xl font-bold text-blue-700 mb-6 text-center;
+        }
+        .content-section p {
+            @apply text-lg leading-relaxed text-gray-700 mb-6;
+        }
+        .ai-button {
+            @apply inline-block mt-8 px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-blue-700 hover:scale-105 transition-all duration-300 ease-in-out;
+        }
+
+        /* Footer Styling - Mimicking original template's footer */
+        .site-footer-custom {
+            @apply bg-gray-800 text-gray-300 py-12 px-4 rounded-t-lg shadow-inner mt-auto;
+        }
+        .site-footer-title {
+            @apply text-white font-semibold text-xl mb-4;
+        }
+        .site-footer-links li {
+            @apply mb-2;
+        }
+        .site-footer-link {
+            @apply text-gray-400 hover:text-blue-400 transition-colors duration-200;
+        }
+        .copyright-text {
+            @apply text-sm text-gray-500;
+        }
+        /* Enhanced button styling for a more distinct shape/presence */
+        .tiktok-button-custom {
+            @apply inline-block px-8 py-4 bg-gradient-to-r from-pink-600 to-red-600 text-white font-bold rounded-full shadow-xl hover:from-pink-700 hover:to-red-700 hover:scale-105 transition-all duration-300 ease-in-out border-2 border-red-700;
+        }
+        .social-links-custom a {
+            @apply text-gray-400 hover:text-white transition-colors duration-200 text-2xl;
+        }
+        /* Style for language dropdown button in footer */
+        .language-dropdown-button {
+            @apply bg-gray-700 text-white font-medium py-2 px-4 rounded-md inline-flex items-center hover:bg-gray-600 transition-colors duration-200;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="dark:inline-block hidden">💡</span>
+        <span class="inline-block dark:hidden">🌙</span>
+    </button>
+
+    <!-- Header Section -->
+    <header class="navbar-custom">
+        <div class="container-wide flex justify-between items-center">
+            <a class="navbar-brand-custom" href="#home-section">
+                <i class="bi-back"></i>
+                <span>Vibe Code</span>
+            </a>
+
+            <!-- Mobile menu icon (hamburger) -->
+            <button class="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    type="button" id="mobile-menu-button" aria-expanded="false" aria-label="Toggle navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+
+            <!-- Desktop Nav and Mobile Nav (collapsed by default) -->
+            <nav class="hidden lg:flex flex-grow justify-end" id="main-nav">
+                <ul class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0 mt-4 lg:mt-0">
+                    <li><a class="nav-link-custom" href="#home-section">Home</a></li>
+                    <li><a class="nav-link-custom" href="#ai-guide-section">AI Guide</a></li>
+                </ul>
+                <div class="hidden lg:block ml-8">
+                    <a href="#home-section" class="text-gray-700 hover:text-blue-600 text-2xl">
+                        <i class="bi-person"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Home Section (from tech.html content) -->
+        <section id="home-section" class="container-wide text-center py-8 px-4 mt-8">
+            <h2 class="text-4xl font-bold text-blue-700 mb-6">Master AI with Intuitive Coding</h2>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Welcome to Vibe Code AI Courses, where cutting-edge artificial intelligence meets an engaging, hands-on learning experience. Our programs are designed to equip you with the skills to build, understand, and innovate in the world of AI, regardless of your current coding background.
+            </p>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Explore modules covering Machine Learning, Deep Learning, Natural Language Processing, and Computer Vision. With practical projects and a supportive community, you'll go from theory to implementation in no time.
+            </p>
+            <p class="text-xl font-semibold text-green-700 mt-8 mb-10">
+                Start your AI journey with us and transform your ideas into intelligent solutions!
+            </p>
+        </section>
+
+        <!-- AI Guide Section (from ai.html content) -->
+        <section id="ai-guide-section" class="mt-12">
+            <!-- Hero Section for AI Page -->
+            <div class="ai-hero-section">
+                <div class="ai-hero-overlay"></div>
+                <div class="ai-hero-content">
+                    <h1>The Rhythmic Revolution of AI Coding</h1>
+                    <p>Welcome to the Vibe Coding AI Guide! Discover a fresh, fun way to learn programming, making coding feel natural and exciting. We believe anyone can learn to code and unleash their inner creator with AI.</p>
+                </div>
+            </div>
+
+            <!-- Main Content Section with detailed guide info -->
+            <div class="content-section">
+                <h2 class="text-blue-700">What is Vibe Coding?</h2>
+                <p>Vibe Coding is about finding your favorite song's rhythm, but with code! It transforms learning programming into a natural and exciting experience, using simple ideas to let your creativity shine. We believe coding should be accessible and joyful for everyone, even if you've never tried before.</p>
+
+                <h2 class="text-blue-700 mt-8">Why Vibe Coding for AI?</h2>
+                <p>Artificial Intelligence is like giving computers the ability to think and create. Vibe Coding helps you jump into this exciting field easily, like stepping into a new adventure game. We make learning AI feel less like a tough puzzle and more like a creative journey of discovery. Whether you love music, design, or are just curious about how AI works, Vibe Coding helps you use your natural talents to understand concepts like Machine Learning and Neural Networks.</p>
+
+                <h2 class="text-blue-700 mt-8">Getting Started with Your AI Vibe: Your First Steps!</h2>
+                <ol class="list-decimal list-inside text-lg text-gray-700 mb-6 space-y-2">
+                    <li>**Get a Code Editor:** Think of this as your digital sketchbook for code. Download a friendly one like VS Code. It's free, powerful, and easy to use.</li>
+                    <li>**Play with Simple Projects:** Start with small, fun projects using languages like Python. Python is like the "easy button" for AI, and you'll quickly get comfortable and confident.</li>
+                    <li>**Add Your Creative Touch:** Make your AI projects sing! Add music, cool animations, or even colorful charts that show what your AI is doing in a beautiful way.</li>
+                    <li>**Share and Connect:** Show off what you've made! Share your projects with friends or online communities. You can also take ideas from others and make them your own — collaboration is key!</li>
+                </ol>
+                <p class="text-center text-xl font-medium mt-8">
+                    Ready to dive deeper into AI? Download our comprehensive guide:
+                </p>
+                <div class="text-center mt-8">
+                    <a class="ai-button" href="static/ai-coding-guide.pdf" download>
+                        Download Our AI Guide (PDF)
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer-custom">
+        <div class="container-wide grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 mb-4 pb-2">
+                <a class="navbar-brand-custom text-white" href="#home-section">
+                    <i class="bi-back"></i>
+                    <span>Vibe Code</span>
+                </a>
+            </div>
+
+            <div class="col-span-1">
+                <h6 class="site-footer-title">Resources</h6>
+                <ul class="site-footer-links">
+                    <li><a href="#home-section" class="site-footer-link">Home</a></li>
+                    <li><a href="#ai-guide-section" class="site-footer-link">AI Guide</a></li>
+                    <li><a href="#" class="site-footer-link">FAQs (Placeholder)</a></li>
+                    <li><a href="#" class="site-footer-link">Contact (Placeholder)</a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-1 mb-4 md:mb-0">
+                <h6 class="site-footer-title">Information</h6>
+                <p class="text-gray-400 flex items-center mb-1">
+                    <a href="tel: 305-240-9671" class="site-footer-link">305-240-9671</a>
+                </p>
+                <p class="text-gray-400 flex items-center">
+                    <a href="mailto:info@company.com" class="site-footer-link">info@company.com</a>
+                </p>
+            </div>
+
+            <div class="col-span-1 mt-4 md:mt-0 md:ml-auto text-center md:text-left">
+                <div class="relative inline-block text-left">
+                    <button class="language-dropdown-button" type="button" id="language-dropdown-button" aria-expanded="false">
+                        English
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul id="language-dropdown-menu" class="dropdown-menu-custom absolute right-0 mt-2 w-40 origin-top-right hidden">
+                        <li><button class="dropdown-item-custom w-full text-left" type="button">Thai</button></li>
+                        <li><button class="dropdown-item-custom w-full text-left" type="button">Myanmar</button></li>
+                        <li><button class="dropdown-item-custom w-full text-left" type="button">Arabic</button></li>
+                    </ul>
+                </div>
+
+                <p class="copyright-text mt-8">Copyright &copy; <span id="current-year-footer"></span> Vibe Code AI. All rights reserved.</p>
+                <p class="copyright-text mt-2">Design: <a rel="nofollow" href="https://templatemo.com" target="_blank" class="site-footer-link">TemplateMo</a></p>
+            </div>
+        </div>
+        <div class="social-links-custom flex justify-center gap-6 mt-8">
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer" aria-label="TikTok 1"><i class="bi-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@earunga" target="_blank" rel="noopener noreferrer" aria-label="TikTok 2"><i class="bi-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@yourtiktokusername_3" target="_blank" rel="noopener noreferrer" aria-label="TikTok 3"><i class="bi-tiktok"></i></a>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer"
+               class="tiktok-button-custom">
+                Visit Our TikTok
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Script to set the current year dynamically for the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mainNav = document.getElementById('main-nav');
+
+        if (mobileMenuButton && mainNav) {
+            mobileMenuButton.addEventListener('click', () => {
+                mainNav.classList.toggle('hidden');
+                mainNav.classList.toggle('flex');
+                mainNav.classList.toggle('flex-col');
+                mainNav.classList.toggle('absolute');
+                mainNav.classList.toggle('top-full');
+                mainNav.classList.toggle('left-0');
+                mainNav.classList.toggle('w-full');
+                mainNav.classList.toggle('bg-white');
+                mainNav.classList.toggle('shadow-lg');
+                mainNav.classList.toggle('rounded-b-lg');
+                mainNav.classList.toggle('py-4');
+                mainNav.classList.toggle('z-40');
+            });
+        }
+
+        // Language dropdown toggle
+        const languageDropdownButton = document.getElementById('language-dropdown-button');
+        const languageDropdownMenu = document.getElementById('language-dropdown-menu');
+
+        if (languageDropdownButton && languageDropdownMenu) {
+            languageDropdownButton.addEventListener('click', (event) => {
+                languageDropdownMenu.classList.toggle('hidden');
+                event.stopPropagation(); // Prevent click from bubbling up to document and closing immediately
+            });
+            // Close dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!languageDropdownButton.contains(event.target) && !languageDropdownMenu.contains(event.target)) {
+                    languageDropdownMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking a link
+                if (!mainNav.classList.contains('hidden') && window.innerWidth < 1024) { // 1024px is Tailwind's 'lg' breakpoint
+                    mobileMenuButton.click(); // Simulate click to close menu
+                }
+            });
+        });
+    </script>
+</body>
+</html>
