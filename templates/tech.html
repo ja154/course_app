@@ -3,22 +3,27 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div class="text-center py-8">
-        <h2 class="text-3xl font-bold text-cyan-400 mb-4">Master AI with Intuitive Coding</h2>
-        <p class="text-lg text-gray-300 mb-6">
-            Welcome to Vibe Code AI Courses, where cutting-edge artificial intelligence meets an engaging, hands-on learning experience. Our programs are designed to equip you with the skills to build, understand, and innovate in the world of AI, regardless of your current coding background.
-        </p>
-        <p class="text-lg text-gray-300 mb-6">
-            Explore modules covering Machine Learning, Deep Learning, Natural Language Processing, and Computer Vision. With practical projects and a supportive community, you'll go from theory to implementation in no time.
-        </p>
-        <p class="text-xl font-semibold text-green-400">
-            Start your AI journey with us and transform your ideas into intelligent solutions!
-        </p>
-        <!-- Button to directly link users to the AI page -->
-        <p class="mt-8">
-            <a href="{{ url_for('ai') }}" class="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
-                Discover Our AI Courses
-            </a>
-        </p>
+<section class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-12 text-center">
+                <div class="custom-block">
+                    <h2 class="mb-4" style="color: var(--heading-color);">Master AI with Intuitive Coding</h2>
+                    <p class="lead">
+                        Welcome to Vibe Code AI Courses, where cutting-edge artificial intelligence meets an engaging, hands-on learning experience. Our programs are designed to equip you with the skills to build, understand, and innovate in the world of AI, regardless of your current coding background.
+                    </p>
+                    <p class="lead mb-4">
+                        Explore modules covering Machine Learning, Deep Learning, Natural Language Processing, and Computer Vision. With practical projects and a supportive community, you'll go from theory to implementation in no time.
+                    </p>
+                    <p class="lead fw-semibold" style="color: var(--secondary-color);">
+                       Start your AI journey with us and transform your ideas into intelligent solutions!
+                    </p>
+                    <a href="{{ url_for('ai') }}" class="custom-btn mt-4">
+                        Discover Our AI Courses
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 {% endblock %}
