@@ -1,21 +1,178 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding AI</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts: Montserrat (for headings) and Open Sans (for body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Optional: Bootstrap Icons for icons like bi-back. Uncomment if you want these icons to show. -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"> -->
+    <style>
+        /* Consistent body and heading fonts with base.html */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            @apply bg-gray-50 text-gray-800 min-h-screen flex flex-col;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            @apply font-semibold;
+        }
 
-{% block title %}Vibe Coding AI{% endblock %}
+        /* Hero Section style for AI page - Mimicking index.html's hero */
+        .ai-hero-section {
+            background-image: url('https://placehold.co/1500x500/A0D9F7/003C60?text=AI+Concepts'); /* Placeholder for a visually appealing AI image */
+            background-size: cover;
+            background-position: center;
+            @apply relative flex justify-center items-center py-20 px-4 text-center text-white shadow-lg;
+        }
+        .ai-hero-overlay {
+            @apply absolute inset-0 bg-blue-800 bg-opacity-70; /* Darker blue overlay */
+        }
+        .ai-hero-content {
+            @apply relative z-10 max-w-3xl;
+        }
+        .ai-hero-content h1 {
+            @apply text-5xl font-bold mb-4 drop-shadow-md;
+        }
+        .ai-hero-content p {
+            @apply text-xl leading-relaxed opacity-90;
+        }
 
-{% block content %}
-<section class="section-padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-12 text-center">
-                <div class="custom-block">
-                    <h2 class="mb-4" style="color: var(--heading-color);">Unlock the Power of AI with Vibe Coding</h2>
-                    <p class="lead">
-                        Dive into the fascinating world of Artificial Intelligence with a learning experience that resonates. At Vibe Coding AI, we believe in understanding complex AI concepts through creativity and engaging methods. Download our exclusive AI guide and start building the future, today!
-                    </p>
-                    <a class="custom-btn mt-4" href="{{ url_for('static', filename='ai-coding-guide.pdf') }}" download>Download our AI Guide</a>
-                </div>
+        /* Main content section - Mimicking card-like elements from index.html */
+        .ai-main-content {
+            @apply max-w-4xl mx-auto my-8 p-10 bg-white rounded-xl shadow-xl border border-gray-200;
+        }
+        .ai-main-content h2 {
+            @apply text-4xl font-bold text-blue-700 mb-6 text-center;
+        }
+        .ai-main-content p {
+            @apply text-lg leading-relaxed text-gray-700 mb-6;
+        }
+        .ai-button {
+            @apply inline-block mt-8 px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-blue-700 hover:scale-105 transition-all duration-300 ease-in-out;
+        }
+
+        /* Footer styling - consistent with base.html's footer */
+        .site-footer-custom {
+            @apply bg-gray-800 text-gray-300 py-12 px-4 rounded-t-lg shadow-inner mt-auto;
+        }
+        .site-footer-title {
+            @apply text-white font-semibold text-xl mb-4;
+        }
+        .site-footer-links li {
+            @apply mb-2;
+        }
+        .site-footer-link {
+            @apply text-gray-400 hover:text-blue-400 transition-colors duration-200;
+        }
+        .copyright-text {
+            @apply text-sm text-gray-500;
+        }
+        /* Enhanced button styling for a more distinct shape/presence */
+        .tiktok-button-custom {
+            @apply inline-block px-8 py-4 bg-gradient-to-r from-pink-600 to-red-600 text-white font-bold rounded-full shadow-xl hover:from-pink-700 hover:to-red-700 hover:scale-105 transition-all duration-300 ease-in-out border-2 border-red-700; /* Added heavier shadow and border */
+        }
+        .social-links-custom a {
+            @apply text-gray-400 hover:text-white transition-colors duration-200 text-2xl;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header Section (standalone for demo, usually {% extends "base.html" %}) -->
+    <header class="navbar-custom">
+        <div class="container-wide flex justify-between items-center">
+            <a class="navbar-brand-custom" href="{{ url_for('home') }}">
+                <i class="bi-back"></i>
+                <span>Vibe Code AI</span>
+            </a>
+            <nav class="flex space-x-6">
+                <a href="{{ url_for('home') }}" class="nav-link-custom">Home</a>
+                <a href="{{ url_for('ai') }}" class="nav-link-custom">AI</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section for AI Page -->
+        <section class="ai-hero-section">
+            <div class="ai-hero-overlay"></div>
+            <div class="ai-hero-content">
+                <h1>Unlock the Power of AI with Vibe Coding</h1>
+                <p>Dive into the fascinating world of Artificial Intelligence with a learning experience that resonates. At Vibe Coding AI, we believe in understanding complex AI concepts through creativity and engaging methods.</p>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="ai-main-content">
+            <h2>Our Approach to AI Education</h2>
+            <p>At Vibe Coding AI, we demystify complex AI concepts by integrating them into practical, engaging projects. We focus on hands-on learning, allowing you to not just understand the theory, but to actively build and innovate. Our curriculum covers the fundamentals of Machine Learning, Deep Learning, Natural Language Processing, and Computer Vision, ensuring you gain a comprehensive skill set.</p>
+            <p>Our unique methodology encourages creativity and problem-solving. You'll learn to apply AI principles to real-world scenarios, transforming abstract ideas into intelligent solutions. We believe in learning by doing, and our guides are designed to support your journey from novice to confident AI practitioner.</p>
+            <p class="text-center text-xl font-medium mt-8">
+                Ready to take the next step in your AI journey?
+            </p>
+            <div class="text-center">
+                <a class="ai-button" href="{{ url_for('static', filename='ai-coding-guide.pdf') }}" download>
+                    Download Our AI Guide
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section - Consistent with base.html's footer, but simplified structure as it's not extending -->
+    <footer class="site-footer-custom">
+        <div class="container-wide grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 mb-4 pb-2">
+                <a class="navbar-brand-custom text-white" href="{{ url_for('home') }}">
+                    <i class="bi-back"></i>
+                    <span>Vibe Code AI</span>
+                </a>
+            </div>
+
+            <div class="col-span-1">
+                <h6 class="site-footer-title">Resources</h6>
+                <ul class="site-footer-links">
+                    <li><a href="#" class="site-footer-link">Home</a></li>
+                    <li><a href="#" class="site-footer-link">AI</a></li>
+                    <li><a href="#" class="site-footer-link">FAQs</a></li>
+                    <li><a href="#" class="site-footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-1 mb-4 md:mb-0">
+                <h6 class="site-footer-title">Information</h6>
+                <p class="text-gray-400 flex items-center mb-1">
+                    <a href="tel: 305-240-9671" class="site-footer-link">305-240-9671</a>
+                </p>
+                <p class="text-gray-400 flex items-center">
+                    <a href="mailto:info@company.com" class="site-footer-link">info@company.com</a>
+                </p>
+            </div>
+
+            <div class="col-span-1 mt-4 md:mt-0 md:ml-auto text-center md:text-left">
+                <!-- No language dropdown needed for AI page unless specified -->
+                <p class="copyright-text mt-8 md:mt-0">&copy; <span id="current-year-footer-ai"></span> Vibe Coding AI. All rights reserved.</p>
+                <p class="copyright-text mt-2">Design: <a rel="nofollow" href="https://templatemo.com" target="_blank" class="site-footer-link">TemplateMo</a></p>
             </div>
         </div>
-    </div>
-</section>
-{% endblock %}
+        <div class="social-links-custom flex justify-center gap-6 mt-8">
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer" aria-label="TikTok 1"><i class="bi-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@earunga" target="_blank" rel="noopener noreferrer" aria-label="TikTok 2"><i class="bi-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@yourtiktokusername_3" target="_blank" rel="noopener noreferrer" aria-label="TikTok 3"><i class="bi-tiktok"></i></a>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" rel="noopener noreferrer"
+               class="tiktok-button-custom">
+                Visit Our TikTok
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Script to set the current year dynamically for the footer
+        document.getElementById('current-year-footer-ai').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
