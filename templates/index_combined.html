@@ -42,7 +42,7 @@
         }
 
         .float-animation {
-            animation: float 3s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -78,28 +78,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        /* NEW: Styles for Google Translate Widget */
-        .goog-te-gadget-simple {
-            background-color: rgba(255, 255, 255, 0.3) !important;
-            border: 1px solid rgba(255, 255, 255, 0.4) !important;
-            padding: 8px !important;
-            border-radius: 8px !important;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
-        }
-        .goog-te-gadget-simple span {
-            color: #333 !important;
-        }
-        .goog-te-gadget-icon {
-            display: none !important;
-        }
-        body > .skiptranslate {
-            display: none;
-        }
-        body {
-            top: 0 !important;
-        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -132,25 +110,25 @@
     <main class="pt-20">
         <!-- Hero Section -->
         <section id="home-section" class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden p-6">
-            <!-- Background Image Collage -->
-            <div class="absolute inset-0 z-0 opacity-40">
-                <img src="static/Generated%20image%201%20(1).png" alt="Abstract AI art" class="absolute top-1/4 left-1/4 w-48 h-48 object-cover rounded-full -rotate-12 transform-gpu transition hover:scale-110 duration-500">
-                <img src="static/image%20(1).png" alt="Abstract AI art" class="absolute bottom-1/4 right-1/4 w-40 h-40 object-cover rounded-2xl rotate-6 transform-gpu transition hover:scale-110 duration-500">
-                <img src="static/Generated%20image%201%20(2).png" alt="Abstract AI art" class="absolute top-20 right-32 w-32 h-32 object-cover rounded-lg rotate-12 transform-gpu transition hover:scale-110 duration-500">
-                <img src="static/image%20(2).png" alt="Abstract AI art" class="absolute bottom-20 left-32 w-36 h-36 object-cover rounded-xl -rotate-6 transform-gpu transition hover:scale-110 duration-500">
+            <!-- Background Creative Image Collage -->
+            <div class="absolute inset-0 z-0">
+                <img src="static/Generated%20image%201%20(1).png" alt="Abstract AI art" class="float-animation absolute top-1/4 left-[15%] w-64 h-64 object-cover rounded-full -rotate-12 mix-blend-lighten opacity-30 blur-sm" style="animation-duration: 8s;">
+                <img src="static/image%20(1).png" alt="Abstract AI art" class="float-animation absolute bottom-[20%] right-[10%] w-56 h-56 object-cover rounded-2xl rotate-6 mix-blend-lighten opacity-40 blur-sm" style="animation-duration: 10s; animation-delay: -2s;">
+                <img src="static/Generated%20image%201%20(2).png" alt="Abstract AI art" class="float-animation absolute top-20 right-[20%] w-48 h-48 object-cover rounded-lg rotate-12 mix-blend-lighten opacity-30 blur-sm" style="animation-duration: 9s; animation-delay: -1s;">
+                <img src="static/image%20(2).png" alt="Abstract AI art" class="float-animation absolute bottom-16 left-[25%] w-52 h-52 object-cover rounded-xl -rotate-6 mix-blend-lighten opacity-30 blur-sm" style="animation-duration: 7s; animation-delay: -3s;">
             </div>
             
             <div class="max-w-6xl mx-auto px-4 text-center relative z-10">
                 <div class="pulse-animation mb-8">
                     <span class="text-8xl">🎵</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight" style="text-shadow: 0 0 20px rgba(0,0,0,0.3);">
                     Master AI with 
                     <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                         Intuitive Coding
                     </span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed max-w-4xl mx-auto">
+                <p class="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed max-w-4xl mx-auto" style="text-shadow: 0 0 10px rgba(0,0,0,0.5);">
                     🚀 Transform your coding journey with Vibe Code AI Courses - where cutting-edge artificial intelligence meets engaging, hands-on learning experiences
                 </p>
             </div>
@@ -276,7 +254,8 @@
                     <p class="text-xl font-semibold text-gray-700 mb-8">
                         📚 Ready to dive deeper into AI? Download our comprehensive guide:
                     </p>
-                    <a href="ai-coding-guide.pdf" download="Vibe-Code-AI-Guide.pdf" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto">
+                    <!-- FIX: Path corrected to include static/ folder -->
+                    <a href="static/ai-coding-guide.pdf" download="Vibe-Code-AI-Guide.pdf" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto">
                         <span class="mr-2">📥</span>
                         Download Our AI Guide (PDF)
                     </a>
@@ -322,9 +301,9 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-12">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                 <div class="col-span-1">
-                    <a class="text-2xl font-bold text-white flex items-center mb-4" href="#home-section">
+                    <a class="text-2xl font-bold text-white flex items-center justify-center md:justify-start mb-4" href="#home-section">
                         <span class="mr-2 text-3xl">🚀</span>
                         <span>Vibe Code</span>
                     </a>
@@ -332,7 +311,7 @@
                 </div>
 
                 <div class="col-span-1">
-                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center">
+                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center justify-center md:justify-start">
                         <span class="mr-2">📚</span> Resources
                     </h6>
                     <ul class="space-y-2">
@@ -344,26 +323,19 @@
                 </div>
 
                 <div class="col-span-1">
-                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center">
+                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center justify-center md:justify-start">
                         <span class="mr-2">📞</span> Contact Info
                     </h6>
-                    <p class="text-gray-400 mb-2 flex items-center">
+                    <p class="text-gray-400 mb-2 flex items-center justify-center md:justify-start">
                         <span class="mr-2">📱</span>
                         <a href="tel:305-240-9671" class="hover:text-purple-400 transition-colors">0742453547</a>
                     </p>
-                    <p class="text-gray-400 flex items-center">
+                    <p class="text-gray-400 flex items-center justify-center md:justify-start">
                         <span class="mr-2">✉️</span>
                         <a href="mailto:info@company.com" class="hover:text-purple-400 transition-colors">jmwanguwe3@gmail.com</a>
                     </p>
                 </div>
 
-                <div class="col-span-1">
-                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center">
-                        <span class="mr-2">🌍</span> Language
-                    </h6>
-                    <!-- NEW: This div will be filled by Google Translate -->
-                    <div id="google_translate_element"></div>
-                </div>
             </div>
 
             <div class="border-t border-gray-800 mt-8 pt-8 text-center">
@@ -385,17 +357,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- NEW: Google Translate Scripts -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
         // Set current year
