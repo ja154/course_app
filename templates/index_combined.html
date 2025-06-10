@@ -42,7 +42,7 @@
         }
 
         .float-animation {
-            animation: float 6s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -78,6 +78,205 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Enhanced Visual Elements */
+        .interactive-image {
+            transition: all 0.4s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .interactive-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(79, 195, 247, 0.2);
+        }
+
+        .ai-visual {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .code-snippet {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 20px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-snippet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(90deg, #ff5f56, #ffbd2e, #27ca3f);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .code-snippet::after {
+            content: '● ● ●';
+            position: absolute;
+            top: 8px;
+            left: 15px;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #00ff00;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #00ff00; }
+        }
+
+        .neural-network {
+            width: 100%;
+            height: 200px;
+            background: radial-gradient(circle at center, rgba(79, 195, 247, 0.1) 0%, transparent 70%);
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #4fc3f7, #9c27b0);
+            border-radius: 50%;
+            animation: pulse-node 2s infinite;
+        }
+
+        @keyframes pulse-node {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        .connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #4fc3f7, #9c27b0);
+            opacity: 0.5;
+            animation: flow 3s infinite;
+        }
+
+        @keyframes flow {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.2; }
+        }
+
+        .holographic-effect {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            background-size: 400% 400%;
+            animation: holographic 4s ease infinite;
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        @keyframes holographic {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .holographic-effect > div {
+            background: white;
+            border-radius: 18px;
+            height: 100%;
+        }
+
+        .data-visualization {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-bar {
+            width: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 0 5px;
+            border-radius: 3px;
+            animation: grow 2s ease-in-out infinite;
+        }
+
+        @keyframes grow {
+            0%, 100% { height: 50px; }
+            50% { height: 150px; }
+        }
+
+        .floating-icons {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float-icons 6s ease-in-out infinite;
+        }
+
+        @keyframes float-icons {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(-10px) rotate(240deg); }
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(79, 195, 247, 0.3);
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(79, 195, 247, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(156, 39, 176, 0.4); }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -109,33 +308,62 @@
 
     <main class="pt-20">
         <!-- Hero Section -->
-        <section id="home-section" class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden p-6">
-            <!-- Background Creative Image Collage -->
-            <div class="absolute inset-0 z-0">
-                <img src="static/Generated%20image%201%20(1).png" alt="Abstract AI art" class="float-animation absolute top-1/4 left-[15%] w-64 h-64 object-cover rounded-full -rotate-12 mix-blend-lighten opacity-30 blur-sm" style="animation-duration: 8s;">
-                <img src="static/image%20(1).png" alt="Abstract AI art" class="float-animation absolute bottom-[20%] right-[10%] w-56 h-56 object-cover rounded-2xl rotate-6 mix-blend-lighten opacity-40 blur-sm" style="animation-duration: 10s; animation-delay: -2s;">
-                <img src="static/Generated%20image%201%20(2).png" alt="Abstract AI art" class="float-animation absolute top-20 right-[20%] w-48 h-48 object-cover rounded-lg rotate-12 mix-blend-lighten opacity-30 blur-sm" style="animation-duration: 9s; animation-delay: -1s;">
-                <img src="static/image%20(2).png" alt="Abstract AI art" class="float-animation absolute bottom-16 left-[25%] w-52 h-52 object-cover rounded-xl -rotate-6 mix-blend-lighten opacity-30 blur-sm" style="animation-duration: 7s; animation-delay: -3s;">
+        <section id="home-section" class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="float-animation absolute top-20 left-10 text-6xl">🤖</div>
+                <div class="float-animation absolute top-40 right-20 text-4xl" style="animation-delay: 1s;">💻</div>
+                <div class="float-animation absolute bottom-40 left-20 text-5xl" style="animation-delay: 2s;">⚡</div>
+                <div class="float-animation absolute bottom-20 right-10 text-4xl" style="animation-delay: 0.5s;">🎯</div>
+                
+                <!-- Floating Tech Icons -->
+                <div class="floating-icons" style="top: 15%; left: 5%; animation-delay: 0s;">🔬</div>
+                <div class="floating-icons" style="top: 25%; right: 15%; animation-delay: 1s;">🧬</div>
+                <div class="floating-icons" style="bottom: 35%; left: 15%; animation-delay: 2s;">🔮</div>
+                <div class="floating-icons" style="bottom: 15%; right: 5%; animation-delay: 3s;">🌟</div>
             </div>
             
             <div class="max-w-6xl mx-auto px-4 text-center relative z-10">
                 <div class="pulse-animation mb-8">
                     <span class="text-8xl">🎵</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight" style="text-shadow: 0 0 20px rgba(0,0,0,0.3);">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                     Master AI with 
                     <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                         Intuitive Coding
                     </span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed max-w-4xl mx-auto" style="text-shadow: 0 0 10px rgba(0,0,0,0.5);">
+                <p class="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed max-w-4xl mx-auto">
                     🚀 Transform your coding journey with Vibe Code AI Courses - where cutting-edge artificial intelligence meets engaging, hands-on learning experiences
                 </p>
+                
+                <!-- Interactive Hero Visual -->
+                <div class="mb-8 max-w-2xl mx-auto">
+                    <div class="neural-network glow-effect">
+                        <div class="node" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
+                        <div class="node" style="top: 40%; left: 25%; animation-delay: 0.5s;"></div>
+                        <div class="node" style="top: 60%; left: 35%; animation-delay: 1s;"></div>
+                        <div class="node" style="top: 20%; right: 15%; animation-delay: 1.5s;"></div>
+                        <div class="node" style="top: 40%; right: 25%; animation-delay: 2s;"></div>
+                        <div class="node" style="top: 60%; right: 35%; animation-delay: 2.5s;"></div>
+                        <div class="connection" style="top: 25%; left: 20%; width: 60%; transform: rotate(15deg);"></div>
+                        <div class="connection" style="top: 45%; left: 30%; width: 40%; transform: rotate(-10deg);"></div>
+                        <div class="connection" style="top: 65%; left: 40%; width: 50%; transform: rotate(5deg);"></div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center">
+                        <span class="mr-2">🎯</span> Start Learning
+                    </button>
+                    <button class="glass-effect text-white font-medium py-4 px-8 rounded-full text-lg hover:bg-white hover:text-purple-600 transition-all duration-300 flex items-center">
+                        <span class="mr-2">📚</span> Explore Courses
+                    </button>
+                </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section class="py-20 bg-white">
+        <section class="py-20 bg-white relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
@@ -147,35 +375,115 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center">
-                        <div class="text-6xl mb-4">🧠</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Machine Learning</h3>
-                        <p class="text-gray-600">Master the fundamentals of ML with hands-on projects</p>
+                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center holographic-effect">
+                        <div>
+                            <div class="text-6xl mb-4">🧠</div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Machine Learning</h3>
+                            <p class="text-gray-600 mb-4">Master the fundamentals of ML with hands-on projects</p>
+                            <div class="ai-visual" style="height: 120px; font-size: 2rem;">
+                                📊
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center">
-                        <div class="text-6xl mb-4">🔮</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Deep Learning</h3>
-                        <p class="text-gray-600">Dive deep into neural networks and advanced AI</p>
+                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center holographic-effect">
+                        <div>
+                            <div class="text-6xl mb-4">🔮</div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Deep Learning</h3>
+                            <p class="text-gray-600 mb-4">Dive deep into neural networks and advanced AI</p>
+                            <div class="neural-network" style="height: 120px;">
+                                <div class="node" style="top: 30%; left: 20%; animation-delay: 0s;"></div>
+                                <div class="node" style="top: 30%; right: 20%; animation-delay: 0.5s;"></div>
+                                <div class="node" style="bottom: 30%; left: 35%; animation-delay: 1s;"></div>
+                                <div class="connection" style="top: 35%; left: 25%; width: 50%; transform: rotate(25deg); background: linear-gradient(90deg, #ffeb3b, #ff9800);"></div>
+                    </div>
+                </div>
+                
+                <button class="bg-white text-blue-600 font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-50 transition-all duration-300 flex items-center mx-auto shadow-lg hover:shadow-xl">
+                    <span class="mr-2">⚡</span>
+                    Get Started Now
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1">
+                    <a class="text-2xl font-bold text-white flex items-center mb-4" href="#home-section">
+                        <span class="mr-2 text-3xl">🚀</span>
+                        <span>Vibe Code</span>
+                    </a>
+                    <p class="text-gray-400">Making AI education accessible and fun for everyone!</p>
+                </div>
+
+                <div class="col-span-1">
+                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center">
+                        <span class="mr-2">📚</span> Resources
+                    </h6>
+                    <ul class="space-y-2">
+                        <li><a href="#home-section" class="text-gray-400 hover:text-purple-400 transition-colors">🏠 Home</a></li>
+                        <li><a href="#ai-guide-section" class="text-gray-400 hover:text-purple-400 transition-colors">🤖 AI Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">❓ FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">📧 Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1">
+                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center">
+                        <span class="mr-2">📞</span> Contact Info
+                    </h6>
+                    <p class="text-gray-400 mb-2 flex items-center">
+                        <span class="mr-2">📱</span>
+                        <a href="tel:305-240-9671" class="hover:text-purple-400 transition-colors">305-240-9671</a>
+                    </p>
+                    <p class="text-gray-400 flex items-center">
+                        <span class="mr-2">✉️</span>
+                        <a href="mailto:info@company.com" class="hover:text-purple-400 transition-colors">info@company.com</a>
+                    </p>
+                </div>
+
+                <div class="col-span-1">
+                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center">
+                        <span class="mr-2">🌍</span> Language
+                    </h6>
+                    <div class="relative">
+                        <button class="bg-gray-800 text-white font-medium py-2 px-4 rounded-md flex items-center hover:bg-gray%; transform: rotate(25deg);"></div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center">
-                        <div class="text-6xl mb-4">💬</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">NLP</h3>
-                        <p class="text-gray-600">Natural Language Processing for smart applications</p>
+                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center holographic-effect">
+                        <div>
+                            <div class="text-6xl mb-4">💬</div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">NLP</h3>
+                            <p class="text-gray-600 mb-4">Natural Language Processing for smart applications</p>
+                            <div class="code-snippet" style="height: 120px; padding: 10px; font-size: 10px;">
+                                <div style="margin-top: 25px;">
+                                    <div class="typing-animation">import nltk</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center">
-                        <div class="text-6xl mb-4">👁️</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Computer Vision</h3>
-                        <p class="text-gray-600">Build intelligent visual recognition systems</p>
+                    <div class="card-hover bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center holographic-effect">
+                        <div>
+                            <div class="text-6xl mb-4">👁️</div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Computer Vision</h3>
+                            <p class="text-gray-600 mb-4">Build intelligent visual recognition systems</p>
+                            <div class="data-visualization" style="height: 120px; font-size: 2rem;">
+                                🖼️
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- AI Guide Section -->
-        <section id="ai-guide-section" class="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-orange-50">
+        <section id="ai-guide-section" class="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-orange-50 relative overflow-hidden">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="text-center mb-16">
                     <div class="text-6xl mb-6">🎵</div>
@@ -189,33 +497,56 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                     <div class="space-y-8">
-                        <div class="glass-effect rounded-2xl p-8">
+                        <div class="glass-effect rounded-2xl p-8 interactive-image">
                             <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                                 <span class="mr-3 text-3xl">🎵</span>
                                 What is Vibe Coding?
                             </h3>
-                            <p class="text-gray-600 leading-relaxed">
+                            <p class="text-gray-600 leading-relaxed mb-4">
                                 Vibe Coding is about finding your favorite song's rhythm, but with code! It transforms learning programming into a natural and exciting experience, using simple ideas to let your creativity shine. 🌟
                             </p>
+                            <div class="data-visualization flex items-center justify-center">
+                                <div class="chart-bar" style="animation-delay: 0s;"></div>
+                                <div class="chart-bar" style="animation-delay: 0.2s;"></div>
+                                <div class="chart-bar" style="animation-delay: 0.4s;"></div>
+                                <div class="chart-bar" style="animation-delay: 0.6s;"></div>
+                                <div class="chart-bar" style="animation-delay: 0.8s;"></div>
+                            </div>
                         </div>
 
-                        <div class="glass-effect rounded-2xl p-8">
+                        <div class="glass-effect rounded-2xl p-8 interactive-image">
                             <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                                 <span class="mr-3 text-3xl">🤖</span>
                                 Why Vibe Coding for AI?
                             </h3>
-                            <p class="text-gray-600 leading-relaxed">
+                            <p class="text-gray-600 leading-relaxed mb-4">
                                 Artificial Intelligence is like giving computers the ability to think and create. We make learning AI feel less like a tough puzzle and more like a creative journey of discovery. 🚀
                             </p>
+                            <div class="ai-visual">
+                                🧠
+                            </div>
                         </div>
                     </div>
 
                     <div class="lg:pl-8">
-                        <div class="bg-white rounded-2xl p-8 shadow-xl">
+                        <div class="bg-white rounded-2xl p-8 shadow-xl glow-effect">
                             <h3 class="text-2xl font-bold gradient-text mb-6 flex items-center">
                                 <span class="mr-3 text-3xl">🎯</span>
                                 Getting Started - Your First Steps!
                             </h3>
+                            
+                            <!-- Interactive Code Example -->
+                            <div class="code-snippet mb-6">
+                                <div style="margin-top: 35px;">
+                                    <div class="typing-animation" style="font-size: 12px;">
+                                        # Your first AI program
+                                    </div>
+                                    <div style="margin-top: 10px; color: #ff6b6b;">
+                                        print("Hello AI World! 🤖")
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="space-y-6">
                                 <div class="flex items-start space-x-4">
                                     <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
@@ -254,162 +585,36 @@
                     <p class="text-xl font-semibold text-gray-700 mb-8">
                         📚 Ready to dive deeper into AI? Download our comprehensive guide:
                     </p>
-                    <!-- FIX: Path corrected to include static/ folder -->
-                    <a href="static/ai-coding-guide.pdf" download="Vibe-Code-AI-Guide.pdf" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto">
+                    <button class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto glow-effect">
                         <span class="mr-2">📥</span>
                         Download Our AI Guide (PDF)
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- Visual Showcase Section -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
-                        🎨 A Glimpse Into Vibe Code
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        See what's possible when creativity and artificial intelligence collide.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="overflow-hidden rounded-xl shadow-lg">
-                        <img src="static/Generated%20image%201.png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-                    </div>
-                     <div class="overflow-hidden rounded-xl shadow-lg">
-                        <img src="static/image.png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-                    </div>
-                     <div class="overflow-hidden rounded-xl shadow-lg">
-                        <img src="static/Generated%20image%201%20(3).png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-                    </div>
-                     <div class="overflow-hidden rounded-xl shadow-lg">
-                        <img src="static/image%20(3).png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-                    </div>
-                     <div class="overflow-hidden rounded-xl shadow-lg">
-                        <img src="static/Generated%20image%201%20(4).png" alt="Generated AI artwork" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-                    </div>
-                     <div class="overflow-hidden rounded-xl shadow-lg">
-                        <img src="static/Autodontics.png" alt="Autodontics Logo" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-                    </div>
-                </div>
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="floating-icons" style="top: 10%; left: 10%; animation-delay: 0s;">⚡</div>
+                <div class="floating-icons" style="top: 20%; right: 10%; animation-delay: 1s;">🎨</div>
+                <div class="floating-icons" style="bottom: 30%; left: 20%; animation-delay: 2s;">🔥</div>
+                <div class="floating-icons" style="bottom: 10%; right: 20%; animation-delay: 3s;">✨</div>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div class="col-span-1">
-                    <a class="text-2xl font-bold text-white flex items-center justify-center md:justify-start mb-4" href="#home-section">
-                        <span class="mr-2 text-3xl">🚀</span>
-                        <span>Vibe Code</span>
-                    </a>
-                    <p class="text-gray-400">Making AI education accessible and fun for everyone!</p>
-                </div>
-
-                <div class="col-span-1">
-                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center justify-center md:justify-start">
-                        <span class="mr-2">📚</span> Resources
-                    </h6>
-                    <ul class="space-y-2">
-                        <li><a href="#home-section" class="text-gray-400 hover:text-purple-400 transition-colors">🏠 Home</a></li>
-                        <li><a href="#ai-guide-section" class="text-gray-400 hover:text-purple-400 transition-colors">🤖 AI Guide</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">❓ FAQs</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">📧 Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-span-1">
-                    <h6 class="text-white font-semibold text-lg mb-4 flex items-center justify-center md:justify-start">
-                        <span class="mr-2">📞</span> Contact Info
-                    </h6>
-                    <p class="text-gray-400 mb-2 flex items-center justify-center md:justify-start">
-                        <span class="mr-2">📱</span>
-                        <a href="tel:305-240-9671" class="hover:text-purple-400 transition-colors">0742453547</a>
-                    </p>
-                    <p class="text-gray-400 flex items-center justify-center md:justify-start">
-                        <span class="mr-2">✉️</span>
-                        <a href="mailto:info@company.com" class="hover:text-purple-400 transition-colors">jmwanguwe3@gmail.com</a>
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <div class="flex justify-center space-x-6 mb-6">
-                    <a href="https://www.tiktok.com/@jaygraphicz254" target="_blank" class="text-2xl hover:text-purple-400 transition-colors">
-                        <i class="bi-tiktok"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@earunga" target="_blank" class="text-2xl hover:text-purple-400 transition-colors">
-                        <i class="bi-tiktok"></i>
-                    </a>
-                </div>
-                <button class="bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-3 px-6 rounded-full hover:from-pink-600 hover:to-red-600 transition-all duration-300 flex items-center mx-auto mb-4">
-                    <span class="mr-2">🎵</span>
-                    Visit Our TikTok
-                </button>
-                <p class="text-sm text-gray-500">
-                    Copyright © <span id="current-year-footer">2024</span> Vibe Code AI. All rights reserved.
+            
+            <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+                <div class="text-6xl mb-6">🎉</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Start Your AI Journey Today!
+                </h2>
+                <p class="text-xl mb-8 opacity-90">
+                    🚀 Transform your ideas into intelligent solutions with our comprehensive AI courses
                 </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Set current year
-        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mainNav = document.getElementById('main-nav');
-
-        if (mobileMenuButton && mainNav) {
-            mobileMenuButton.addEventListener('click', () => {
-                mainNav.classList.toggle('hidden');
-                mainNav.classList.toggle('flex');
-                mainNav.classList.toggle('flex-col');
-                mainNav.classList.toggle('absolute');
-                mainNav.classList.toggle('top-full');
-                mainNav.classList.toggle('left-0');
-                mainNav.classList.toggle('w-full');
-                mainNav.classList.toggle('bg-white');
-                mainNav.classList.toggle('shadow-lg');
-                mainNav.classList.toggle('rounded-b-lg');
-                mainNav.classList.toggle('py-4');
-                mainNav.classList.toggle('z-40');
-            });
-        }
-
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu after clicking
-                if (!mainNav.classList.contains('hidden') && window.innerWidth < 1024) {
-                    mobileMenuButton.click();
-                }
-            });
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('header');
-            if (window.scrollY > 100) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
-        });
-    </script>
-</body>
-</html>
+                
+                <!-- Interactive CTA Visual -->
+                <div class="mb-8 max-w-lg mx-auto">
+                    <div class="neural-network" style="background: rgba(255, 255, 255, 0.1);">
+                        <div class="node" style="top: 30%; left: 20%; animation-delay: 0s; background: linear-gradient(135deg, #ffeb3b, #ff9800);"></div>
+                        <div class="node" style="top: 30%; right: 20%; animation-delay: 0.3s; background: linear-gradient(135deg, #ffeb3b, #ff9800);"></div>
+                        <div class="node" style="bottom: 30%; left: 35%; animation-delay: 0.6s; background: linear-gradient(135deg, #ffeb3b, #ff9800);"></div>
+                        <div class="connection" style="top: 35%; left: 25%; width: 50
