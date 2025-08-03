@@ -469,7 +469,7 @@
                 </svg>
             </button>
 
-            <nav class="hidden lg:flex space-x-8" id="main-nav">
+            <nav class="lg:flex space-x-8" id="main-nav">
                 <a class="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 flex items-center" href="#home-section">
                     <span class="mr-1">🏠</span> Home
                 </a>
@@ -800,10 +800,10 @@
                     <p class="text-xl font-semibold text-gray-700 mb-8 animate-fadeInUp">
                         📚 Ready to dive deeper into AI? Download our comprehensive guide:
                     </p>
-                    <button class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto glow-effect animate-fadeInUp delay-100">
+                    <a href="{{ url_for('static', filename='ai-coding-guide.pdf') }}" download class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg flex items-center mx-auto glow-effect animate-fadeInUp delay-100">
                         <span class="mr-2">📥</span>
                         Download Our AI Guide (PDF)
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -929,7 +929,7 @@
                         <span class="mr-2">🎓</span> Enroll Now
                     </button>
                     <button class="glass-effect text-white font-medium py-4 px-8 rounded-full text-lg hover:bg-white hover:text-purple-600 transition-all duration-300 flex items-center">
-                        <span class="mr-2">🎬</span> 
+                        <span class="mr-2">🎬</span> Watch Demo
                     </button>
                 </div>
             </div>
@@ -980,7 +980,7 @@
                     </h6>
                     <p class="text-gray-400 mb-2 flex items-center">
                         <span class="mr-2">📱</span>
-                        <a href="tel:0742453547" class="hover:text-purple-400 transition-colors">042453547</a>
+                        <a href="tel:0742453547" class="hover:text-purple-400 transition-colors">0742453547</a>
                     </p>
                     <p class="text-gray-400 mb-2 flex items-center">
                         <span class="mr-2">✉️</span>
