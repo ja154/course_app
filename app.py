@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, send_from_directory
 
 app = Flask(__name__)
 
@@ -7,6 +7,10 @@ def home():
     # Render the single combined HTML page for the homepage
     # Ensure 'index_combined.html' is in your 'templates' folder
     return render_template('index_combined.html')
+
+@app.route('/download-pdf')
+def download_pdf():
+    return send_from_directory('static', 'ai-coding-guide.pdf', as_attachment=True)
 
 # The /ai and /tech routes are no longer needed as content is consolidated
 # into index_combined.html and accessed via internal links.
